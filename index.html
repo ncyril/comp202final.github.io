@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Final Project - Years of Gentrification</title>
+	<script type="text/javascript" src="workfiles/js/phaser.js"></script>
+</head>
+<script>
+	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'final', {
+		preload: preload,
+		create: create,
+		update: update
+	});
+
+	//variables here
+	var newYear = [];
+	var button1;
+	var button2;
+	var button3;
+	var button4;
+	var button5;
+	var button6;
+	var button7;
+	var button8;
+	var button9;
+
+
+	function preload() {
+		game.load.image('background', 'workfiles/assets/background.png');
+
+		game.load.json('years', 'workfiles/js/years.json');
+		game.load.image('1964', 'workfiles/assets/1964.png');
+		game.load.image('1974', 'workfiles/assets/1974.png');
+		game.load.image('1976', 'workfiles/assets/1976.png');
+		game.load.image('1978', 'workfiles/assets/1978.png');
+		game.load.image('1985', 'workfiles/assets/1985.png');
+		game.load.image('1987', 'workfiles/assets/1987.png');
+		game.load.image('1994', 'workfiles/assets/1994.png');
+		game.load.image('1997', 'workfiles/assets/1997.png');
+		game.load.image('2003', 'workfiles/assets/2003.png');
+		game.load.image('2005', 'workfiles/assets/2005.png');
+		game.load.image('2011', 'workfiles/assets/2011.png');
+		game.load.image('2013', 'workfiles/assets/2013.png');
+		game.load.image('2014', 'workfiles/assets/2014.png');
+
+		game.load.image('ellis', 'workfiles/assets/ellislink.png');
+		game.load.image('sources', 'workfiles/assets/sources.png');
+		game.load.image('dc', 'workfiles/assets/dc.png');
+
+		game.load.image('1964slide', 'workfiles/assets/1964slide.png');
+		game.load.image('1978slide', 'workfiles/assets/1978slide.png');
+		game.load.image('1985slide', 'workfiles/assets/1985slide.png');
+		game.load.image('1994slide', 'workfiles/assets/1994slide.png');
+		game.load.image('1997slide', 'workfiles/assets/1997slide.png');
+		game.load.image('1987slide', 'workfiles/assets/1987slide.png');
+		game.load.image('2011slide', 'workfiles/assets/2011slide.png');
+		game.load.image('2014slide', 'workfiles/assets/2014slide.png');
+	}
+
+	function create() {
+
+
+		background = game.add.sprite(0, 0, 'background');
+		background.name = 'background';
+
+
+		button1 = game.add.button(74, 151, '1964', changeImage, this, 2, 1, 0);
+		button1.anchor.setTo(0.5, 0.5);
+		button1.name = '1964slide';
+
+		button2 = game.add.button(74, 180, '1978', changeImage, this, 2, 1, 0);
+		button2.anchor.setTo(0.5, 0.5);
+		button2.name = '1978slide';
+
+		button3 = game.add.button(74, 205, '1985', changeImage, this, 2, 1, 0);
+		button3.anchor.setTo(0.5, 0.5);
+		button3.name = '1985slide';
+
+		button3 = game.add.button(740, 199, '1997', changeImage, this, 2, 1, 0);
+		button3.anchor.setTo(0.5, 0.5);
+		button3.name = '1997slide';
+
+		button3 = game.add.button(74, 230, '1994', changeImage, this, 2, 1, 0);
+		button3.anchor.setTo(0.5, 0.5);
+		button3.name = '1994slide';
+
+		button4 = game.add.button(740, 175, '1987', changeImage, this, 2, 1, 0);
+		button4.anchor.setTo(0.5, 0.5);
+		button4.name = '1987slide';
+
+		button5 = game.add.button(740, 222, '2011', changeImage, this, 2, 1, 0);
+		button5.anchor.setTo(0.5, 0.5);
+		button5.name = '2011slide';
+
+		button6 = game.add.button(740, 245, '2014', changeImage, this, 2, 1, 0);
+		button6.anchor.setTo(0.5, 0.5);
+		button6.name = '2014slide';
+
+		button7 = game.add.button(600, 505, 'ellis', onClick, this, 2, 1, 0);
+		button7.name = 'ellis';
+
+		button8 = game.add.button(600, 525, 'sources', onClick, this, 2, 1, 0);
+		button8.name = 'sources';
+		
+		button9 = game.add.button(600, 545, 'dc', onClick, this, 2, 1, 0);
+		button9.name = 'dc';
+		//Calls JSON...not in use since i've made the images buttons
+		var yearJSON = game.cache.getJSON('years');
+
+
+	}
+
+	function changeImage(button) {
+		background.loadTexture(button.name);
+	}
+
+	function onClick() {
+		window.open("http://www.antievictionmappingproject.net/ellis.html", "ellis");
+		window.open("https://docs.google.com/document/d/1pbfe9pzCP3ugFoXZLdE_0oYsasE0TDnuhEHPW3m4cWA/edit?usp=sharing", "sources");
+		window.open("http://www.governing.com/gov-data/washington-dc-gentrification-maps-demographic-data.html", 'dc');
+
+	}
+
+	function update() {
+
+	}
+</script>
+
+<body>
+</body>
+
+</html>
